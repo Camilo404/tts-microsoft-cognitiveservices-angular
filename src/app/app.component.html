@@ -1,0 +1,33 @@
+<h1>Text to speech</h1>
+
+<span>Voz&nbsp;&nbsp;&nbsp;</span>
+<select name="Voice" id="Voice" (change)="selectVoice($event)">
+  <option value="default">-- Selecciona una voz --</option>
+  <option *ngFor="let spanishVoice of spanishVoices" value="{{spanishVoice.shortName}}">{{spanishVoice.localName}} - {{spanishVoice.locale}}</option>
+</select>
+
+<br>
+<br>
+
+<span>Pitch&nbsp;</span>
+<input type="range" id="points" name="points" min="0" max="100" value="0" [(ngModel)]="pitch">
+<span>&nbsp;&nbsp;{{pitch}}</span>
+
+<br>
+<br>
+
+<span>Rate&nbsp;&nbsp;</span>
+<input type="range" id="points" name="points" min="0" max="100" value="0" [(ngModel)]="rate">
+<span>&nbsp;&nbsp;{{rate}}</span>
+
+<br>
+<br>
+
+<textarea name="textarea" rows="6" cols="50" placeholder="Escribe aquí" [(ngModel)]="textToSpeech"></textarea>
+
+<br>
+<br>
+
+<button (click)="speakText()">Probar voz</button>
+
+<router-outlet></router-outlet>
